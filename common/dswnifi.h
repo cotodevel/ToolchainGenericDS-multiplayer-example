@@ -19,7 +19,7 @@ USA
 */
 
 
-//DSWNIFI Library revision: 1.1
+//DSWNIFI Library revision: 1.2
 #ifndef __dswnifi_h__
 #define __dswnifi_h__
 

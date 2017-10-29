@@ -18,7 +18,7 @@ USA
 
 */
 
-//DSWNIFI Library revision: 1.1
+//DSWNIFI Library revision: 1.2
 #include "specific_shared.h"
 #include "wifi_shared.h"
 #include "clock.h"
@@ -59,7 +59,7 @@ USA
 //extern struct frameBlock * HandleSendUserspace(uint32 * databuf_src, int bufsize);
 //example: 
 //if(!FrameSenderUser){
-//				FrameSenderUser = HandleSendUserspace((uint8*)nfdata,sizeof(nfdata)-sizeof(volatile uint16));	//make room for crc16 frame
+//				FrameSenderUser = HandleSendUserspace((uint8*)nfdata,sizeof(nfdata));
 //}
 
 //Example Receiver Code
