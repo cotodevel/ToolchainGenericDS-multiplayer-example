@@ -52,6 +52,7 @@ USA
 #include "video.h"
 #include "keypad.h"
 #include "gui.h"
+#include "dma.h"
 
 #include "dswnifi_lib.h"
 
