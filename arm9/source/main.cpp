@@ -84,20 +84,19 @@ int main(int _argc, sint8 **_argv) {
 	
 	//single player:
 	//switch_dswnifi_mode(dswifi_idlemode);
-	//udp nifi: 
+	//udp nifi:
 	//switch_dswnifi_mode(dswifi_udpnifimode);	//UDP NIFI: Check readme
 	//local nifi: 
 	switch_dswnifi_mode(dswifi_localnifimode);	//LOCAL NIFI:
 	
 	while (1)
 	{
-		
 		//Press L to send a frame to the other DS
 		if ((keysPressed() & KEY_L)){
-			//Send This DS Time 
-			volatile uint8 somebuf[128];
+			volatile char somebuf[frameDSsize];	//use frameDSsize as the buffer size, anything above that size won't be sent.
+			//Send This DS Time
 			sprintf((char*)somebuf,"DSTime:%d:%d:%d",getTime()->tm_hour,getTime()->tm_min,getTime()->tm_sec);
-			FrameSenderUser = HandleSendUserspace((uint8*)somebuf,sizeof(somebuf));	//make room for crc16 frame
+			FrameSenderUser = HandleSendUserspace((uint8*)somebuf,sizeof(somebuf));
 		}
 		
 		if ((keysPressed() & KEY_A)){

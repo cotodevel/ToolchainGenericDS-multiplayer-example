@@ -90,6 +90,7 @@ bool do_multi(struct frameBlock * frameBlockRecv)
 			clrscr();
 			printf("DSWNIFIStatus:LocalNifi!");
 			printf("%s",(char*)frameBlockRecv->framebuffer);
+			printf("FrameSize:%d!",frameBlockRecv->frameSize);
 			return true;
 		}
 		break;
@@ -99,6 +100,7 @@ bool do_multi(struct frameBlock * frameBlockRecv)
 			clrscr();
 			printf("DSWNIFIStatus:UDPNifi!");
 			printf("%s",(char*)frameBlockRecv->framebuffer);
+			printf("FrameSize:%d!",frameBlockRecv->frameSize);
 			return true;
 		}
 		break;
