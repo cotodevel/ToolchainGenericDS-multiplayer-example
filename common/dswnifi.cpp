@@ -22,7 +22,7 @@ USA
 #include "specific_shared.h"
 #include "wifi_shared.h"
 #include "clock.h"
-#include "common_shared.h"
+#include "ipcfifo.h"
 
 #ifdef ARM9
 #include "dswnifi_lib.h"
