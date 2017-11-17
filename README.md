@@ -1,29 +1,26 @@
-This is the Toolchain Generic DS Multiplayer example project:
+This is the Toolchain Generic GDB stub example project:
 
-1)Setup:
+Compile Toolchain: To compile this project you will need to follow the steps at https://github.com/cotodevel/ToolchainGenericDS: Then simply extract the project somewhere.
 
-a)For UDP NIFI see: https://github.com/cotodevel/ToolchainGenericDS/tree/master/misc/tcp
+Compile this project: Open msys, through msys commands head to the directory your extracted this project. Then write: make clean make
+
+After compiling, run the example in NDS.
+
+Project Specific description: 
+
+A.  UDP NIFI see: https://github.com/cotodevel/ToolchainGenericDS/tree/master/misc/tcp
 
 or
 
-b)For LOCAL NIFI :
+B.  LOCAL NIFI:
 in arm9/main.cpp comment: single player and udp nifi
 then uncomment localnifi, like this:
 
-//single player:
-//switch_dswnifi_mode(dswifi_idlemode);
-//udp nifi: 
-//switch_dswnifi_mode(dswifi_udpnifimode);	//UDP NIFI: Check readme
-//local nifi: 
-switch_dswnifi_mode(dswifi_localnifimode);	//LOCAL NIFI:
+//switch_dswnifi_mode(dswifi_idlemode);		//single player:
 
+//switch_dswnifi_mode(dswifi_udpnifimode);	//udp nifi: Check readme
 
-2)Compile:
-To compile this project you will need to follow the steps at https://github.com/cotodevel/ToolchainGenericDS:
-
-Then simply extract the project somewhere.
-
-Compile with Make as usual.
+switch_dswnifi_mode(dswifi_localnifimode);	//local nifi: 
 
 
 Then you must run this in BOTH DS, press L to send a frame to the other DS. The receiver DS will have a frame sent from the Sender (Sender DS Clock Time).
