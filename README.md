@@ -1,4 +1,4 @@
-This is the Toolchain Generic GDB stub example project:
+This is the Toolchain Generic DS netplay example project:
 
 Compile Toolchain: To compile this project you will need to follow the steps at https://github.com/cotodevel/ToolchainGenericDS: Then simply extract the project somewhere.
 
