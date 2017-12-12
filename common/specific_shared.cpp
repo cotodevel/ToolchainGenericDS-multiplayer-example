@@ -18,6 +18,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301
 USA
 
 */
+//TGDS required version: IPC Version: 1.3
 
 #include "ipcfifo.h"
 #include "specific_shared.h"
@@ -42,8 +43,13 @@ USA
 
 #endif
 
+//Coto: Hardware IPC struct packed 
+struct sIPCSharedTGDSSpecific* getsIPCSharedTGDSSpecific(){
+	struct sIPCSharedTGDSSpecific* sIPCSharedTGDSSpecificInst = (__attribute__((packed)) struct sIPCSharedTGDSSpecific*)(getUserIPCAddress());
+	return sIPCSharedTGDSSpecificInst;
+}
 
-//inherits what is defined in: common_shared.c
+//inherits what is defined in: ipcfifo.c
 #ifdef ARM9
 __attribute__((section(".itcm")))
 #endif
