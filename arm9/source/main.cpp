@@ -89,6 +89,11 @@ int main(int _argc, sint8 **_argv) {
 	//local nifi: 
 	switch_dswnifi_mode(dswifi_localnifimode);	//LOCAL NIFI:
 	
+	//read IP if udpnifi mode
+	if((getMULTIMode() == dswifi_udpnifimode)&&(dswifiSrv.dswifi_setup == true)){
+		printf("connected: IP: %s",(char*)print_ip((uint32)Wifi_GetIP()));
+	}
+	
 	while (1)
 	{
 		//Press L to send a frame to the other DS
