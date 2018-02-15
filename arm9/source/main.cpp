@@ -77,41 +77,32 @@ int main(int _argc, sint8 **_argv) {
 	}
 	
 	printf("TGDS Multiplayer Example. Need 2 DS");
-	printf("Recompile Example if you want to ");
-	printf("alternate between multiplayer modes");
-	
-	printf("Press L to send frame to connected DS");
-	
-	//single player:
-	//switch_dswnifi_mode(dswifi_idlemode);
-	//udp nifi:
-	//switch_dswnifi_mode(dswifi_udpnifimode);	//UDP NIFI: Check readme
-	//local nifi: 
-	switch_dswnifi_mode(dswifi_localnifimode);	//LOCAL NIFI:
-	
-	//read IP if udpnifi mode
-	if((getMULTIMode() == dswifi_udpnifimode)&&(dswifiSrv.dswifi_setup == true)){
-		printf("connected: IP: %s",(char*)print_ip((uint32)Wifi_GetIP()));
-	}
+	printf("Press A: IDLE");
+	printf("Press B: UDPNIFI");
+	printf("Press X: LOCALNIFI");
+	printf("Press L to send frame to external connected DS");
 	
 	while (1)
 	{
-		//Press L to send a frame to the other DS
+		if ((keysPressed() & KEY_A)){
+			switch_dswnifi_mode(dswifi_idlemode);		//IDLE: (single player)
+			printf("Mode:idle");
+		}
+		if ((keysPressed() & KEY_B)){
+			switch_dswnifi_mode(dswifi_udpnifimode);	//UDP NIFI: Check readme
+			printf("Mode:udpnifi");
+		}
+		if ((keysPressed() & KEY_X)){
+			switch_dswnifi_mode(dswifi_localnifimode);	//LOCAL NIFI:
+			printf("Mode:localnifi");
+		}
+		
 		if ((keysPressed() & KEY_L)){
-			volatile char somebuf[frameDSsize];	//use frameDSsize as the buffer size, anything above that size won't be sent.
-			//Send This DS Time
+			char somebuf[frameDSsize] = {0};	//use frameDSsize as the sender buffer size, any other size won't be sent.
+			//Sender DS Time
 			sprintf((char*)somebuf,"DSTime:%d:%d:%d",getTime()->tm_hour,getTime()->tm_min,getTime()->tm_sec);
 			FrameSenderUser = HandleSendUserspace((uint8*)somebuf,sizeof(somebuf));
 		}
-		
-		if ((keysPressed() & KEY_A)){
-			clrscr();
-		}
-		
-		if ((keysPressed() & KEY_B)){
-			printf("test!:%d",rand());
-		}
-		
 		IRQVBlankWait();
 	}
 
