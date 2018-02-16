@@ -8,21 +8,11 @@ After compiling, run the example in NDS.
 
 Project Specific description: 
 
-A.  UDP NIFI see: https://github.com/cotodevel/ToolchainGenericDS/tree/master/misc/tcp
+Press A to disable DSWNIFI 
+press B to change to DSWNIFI UDP NIFI mode (setup: https://github.com/cotodevel/ToolchainGenericDS/tree/master/misc/tcp)
+press X to change to DSWNIFI localhost mode.
 
-or
-
-B.  LOCAL NIFI:
-in arm9/main.cpp comment: single player and udp nifi
-then uncomment localnifi, like this:
-
-//switch_dswnifi_mode(dswifi_idlemode);		//single player:
-
-//switch_dswnifi_mode(dswifi_udpnifimode);	//udp nifi: Check readme
-
-switch_dswnifi_mode(dswifi_localnifimode);	//local nifi: 
-
-
-Then you must run this in BOTH DS, press L to send a frame to the other DS. The receiver DS will have a frame sent from the Sender (Sender DS Clock Time).
+Then you must run this homebrew in BOTH DS, press L to send a frame to the other DS. 
+The receiver DS will have a frame sent from the Sender (Sender DS Clock Time).
 
 Coto
