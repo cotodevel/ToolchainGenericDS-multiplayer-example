@@ -98,7 +98,7 @@ int main(int _argc, sint8 **_argv) {
 		}
 		
 		if ((keysPressed() & KEY_L)){
-			char somebuf[frameDSsize] = {0};	//use frameDSsize as the sender buffer size, any other size won't be sent.
+			volatile char somebuf[frameDSsize];	//use frameDSsize as the sender buffer size, any other size won't be sent.
 			//Sender DS Time
 			sprintf((char*)somebuf,"DSTime:%d:%d:%d",getTime()->tm_hour,getTime()->tm_min,getTime()->tm_sec);
 			FrameSenderUser = HandleSendUserspace((uint8*)somebuf,sizeof(somebuf));
