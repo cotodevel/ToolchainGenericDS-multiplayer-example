@@ -76,6 +76,9 @@ int main(int _argc, sint8 **_argv) {
 		printf("FS Init error.");
 	}
 	
+	//switch_dswnifi_mode(dswifi_idlemode); is required at program start to properly init dswnifi library
+	switch_dswnifi_mode(dswifi_idlemode);		//single player / IDLE
+	
 	printf("TGDS Multiplayer Example. Need 2 DS");
 	printf("Press A: IDLE");
 	printf("Press B: UDPNIFI");
